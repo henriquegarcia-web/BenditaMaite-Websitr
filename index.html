@@ -1,0 +1,581 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bendita Maitê - Salão de Beleza em Natal/RN. Beleza, cabelo, unhas, cílios, sobrancelhas e bem-estar com atendimento profissional." />
+  <title>Bendita Maitê - Salão de Beleza</title>  <style>
+    :root {
+      --color-primary: #c89e9f;
+      --color-secondary: #f1ddd6;
+      --color-gold: #d8b46a;
+      --color-gold-soft: #fff3cf;
+      --color-dark: #2b2424;
+      --color-text: #5f5151;
+      --color-muted: #8b7a7a;
+      --color-white: #ffffff;
+      --color-bg: #fffafa;
+      --color-border: rgba(200, 158, 159, 0.22);
+
+      --font-main: Arial, Helvetica, sans-serif;
+      --shadow-soft: 0 18px 45px rgba(91, 67, 67, 0.12);
+      --shadow-card: 0 12px 30px rgba(91, 67, 67, 0.10);
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+      --container: 1120px;
+
+      --img-logo: url('https://i.imgur.com/ZY97e00.png');
+      --img-hero: url('https://i.imgur.com/MwsughF.png');
+      --img-pass: url('https://i.imgur.com/rQrx4h0.png');
+      --img-about: url('https://i.imgur.com/Tr2lLlq.png');
+      --img-before-after-1: url('https://i.imgur.com/7mYa9JE.png');
+      --img-before-after-2: url('https://i.imgur.com/wgkaLno.png');
+      --img-before-after-3: url('https://i.imgur.com/aIzWaa2.png');
+      --img-map-lagoa-nova: url('https://i.imgur.com/8kpzv0M.png');
+      --img-map-zona-norte: url('https://i.imgur.com/hba7lwd.png');
+      --img-map-superfacil: url('https://i.imgur.com/sp8JuW0.png');
+      --icon-whatsapp: url('https://i.imgur.com/RFoFvMT.png');
+      --icon-whatsapp-floating: url('https://i.imgur.com/qv8JxSI.png');
+      --icon-instagram: url('https://i.imgur.com/ojnvgi4.png');
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-main);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .container { width: min(100% - 32px, var(--container)); margin-inline: auto; }
+
+    .gold-text {
+      background: linear-gradient(135deg, var(--color-gold), #f4d995, var(--color-primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section { padding: 72px 0; }
+    .section-header { margin-bottom: 30px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      color: var(--color-primary);
+      background: rgba(241, 221, 214, 0.46);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-gold);
+      box-shadow: 0 0 0 5px rgba(216, 180, 106, 0.18);
+    }
+    h1, h2, h3 { color: var(--color-dark); line-height: 1.1; }
+    h1 { font-size: clamp(2.35rem, 11vw, 5.5rem); letter-spacing: -0.07em; }
+    h2 { font-size: clamp(2rem, 7vw, 3.6rem); letter-spacing: -0.055em; margin-bottom: 14px; }
+    h3 { font-size: 1.16rem; margin-bottom: 8px; }
+    .lead { font-size: 1.05rem; color: var(--color-text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--color-white); background: linear-gradient(135deg, var(--color-primary), #b98687); box-shadow: 0 14px 26px rgba(200, 158, 159, 0.35); }
+    .btn-secondary { color: var(--color-dark); background: var(--color-white); border-color: var(--color-border); box-shadow: var(--shadow-card); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 250, 250, 0.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--color-dark); letter-spacing: -0.03em; }
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--img-logo) center/contain no-repeat;
+      box-shadow: 0 12px 22px rgba(200, 158, 159, .28);
+    }
+    .nav-links { display: none; gap: 22px; font-size: .92rem; font-weight: 700; color: var(--color-muted); }
+
+    .hero { position: relative; padding: 48px 0 72px; overflow: hidden; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -120px -80px auto auto;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(241,221,214,.9), transparent 68%);
+      z-index: -1;
+    }
+    .hero-grid { display: grid; gap: 34px; align-items: center; }
+    .hero-copy p { margin: 18px 0 26px; max-width: 620px; }
+    .hero-actions { display: grid; gap: 12px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 28px; }
+    .stat-card { padding: 14px 10px; border-radius: var(--radius-sm); background: var(--color-white); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); }
+    .stat-card strong { display: block; color: var(--color-dark); font-size: 1.15rem; line-height: 1; }
+    .stat-card span { display: block; color: var(--color-muted); font-size: .78rem; margin-top: 5px; }
+    .hero-media { position: relative; min-height: 470px; border-radius: var(--radius-lg); background: var(--img-hero) center/cover; box-shadow: var(--shadow-soft); overflow: hidden; }
+    .hero-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(43,36,36,.72)); }
+    .hero-badge { position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 2; padding: 18px; border-radius: 24px; background: rgba(255,255,255,.88); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.7); color: var(--color-dark); }
+
+    .pass-banner { padding: 34px 0; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); }
+    .pass-card { position: relative; overflow: hidden; padding: 28px; border-radius: var(--radius-lg); background: linear-gradient(135deg, rgba(255,255,255,.84), rgba(255,243,207,.56)); border: 1px solid rgba(255,255,255,.72); box-shadow: var(--shadow-soft); }
+    .pass-card::after { content: '✦'; position: absolute; right: 22px; top: 10px; font-size: 5rem; color: rgba(216,180,106,.25); pointer-events: none; }
+    .pass-card strong { color: var(--color-dark); font-size: clamp(1.65rem, 6vw, 3rem); line-height: 1.05; display: block; letter-spacing: -0.05em; }
+    .pass-card p { margin-top: 10px; max-width: 720px; }
+    .pass-image { margin-top: 24px; min-height: 260px; border-radius: 24px; background: var(--img-pass) center/cover; border: 1px solid rgba(255,255,255,.76); box-shadow: var(--shadow-card); }
+
+    .services-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
+    .service-card { padding: 18px; border-radius: var(--radius-md); background: var(--color-white); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); }
+    .service-icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: 14px; border-radius: 16px; background: linear-gradient(135deg, var(--color-secondary), rgba(216,180,106,.28)); color: var(--color-primary); font-size: 1.2rem; }
+
+    .about-grid, .booking-grid { display: grid; gap: 26px; align-items: center; }
+    .about-image { min-height: 380px; border-radius: var(--radius-lg); background: var(--img-about) center/cover; box-shadow: var(--shadow-soft); }
+    .feature-list { display: grid; gap: 14px; margin-top: 22px; }
+    .feature-item { display: flex; gap: 12px; padding: 14px; border-radius: var(--radius-md); background: rgba(241,221,214,.36); border: 1px solid var(--color-border); }
+    .feature-item span { color: var(--color-gold); font-weight: 900; }
+
+    .social-proof { background: linear-gradient(180deg, rgba(241,221,214,.36), transparent); }
+    .proof-grid { display: grid; gap: 16px; }
+    .proof-card { overflow: hidden; border-radius: var(--radius-lg); background: var(--color-white); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); }
+    .proof-image { min-height: 220px; background: center/cover; }
+    .proof-card:nth-child(1) .proof-image { background-image: var(--img-before-after-1); }
+    .proof-card:nth-child(2) .proof-image { background-image: var(--img-before-after-2); }
+    .proof-card:nth-child(3) .proof-image { background-image: var(--img-before-after-3); }
+    .proof-content { padding: 18px; }
+    .stars { color: var(--color-gold); letter-spacing: 1px; font-weight: 900; }
+
+    .booking-card { padding: 26px; border-radius: var(--radius-lg); background: var(--color-dark); color: rgba(255,255,255,.78); box-shadow: var(--shadow-soft); }
+    .booking-card h2 { color: var(--color-white); }
+    .hours-list { display: grid; gap: 10px; margin: 22px 0 0; }
+    .hours-list li { list-style: none; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .hours-whatsapp { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: #25d366; box-shadow: 0 10px 22px rgba(37,211,102,.24); }
+    .icon-whatsapp,
+    .icon-instagram,
+    .icon-whatsapp-floating {
+      display: inline-block;
+      flex: 0 0 auto;
+      background: center/contain no-repeat;
+    }
+    .icon-whatsapp { width: 20px; height: 20px; background-image: var(--icon-whatsapp); }
+    .icon-instagram { width: 20px; height: 20px; background-image: var(--icon-instagram); }
+    .icon-whatsapp-floating { width: 34px; height: 34px; background-image: var(--icon-whatsapp-floating); }
+    .hours-whatsapp .icon-whatsapp { width: 22px; height: 22px; }
+    .footer-contact-list { display: grid; gap: 18px; margin-top: 10px; }
+    .footer-contact-item strong { display: block; margin-bottom: 6px; }
+    .footer-contact-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .footer-separator { color: rgba(255,255,255,.32); }
+
+    .locations-grid { display: grid; gap: 18px; }
+    .location-card { overflow: hidden; border-radius: var(--radius-lg); background: var(--color-white); border: 1px solid var(--color-border); box-shadow: var(--shadow-card); }
+    .map-placeholder { min-height: 210px; background: center/cover; position: relative; }
+    .location-card:nth-child(1) .map-placeholder { background-image: var(--img-map-lagoa-nova); }
+    .location-card:nth-child(2) .map-placeholder { background-image: var(--img-map-zona-norte); }
+    .location-card:nth-child(3) .map-placeholder { background-image: var(--img-map-superfacil); }
+    .map-placeholder::after { content: ''; position: absolute; inset: 0; background: rgba(200,158,159,.08); pointer-events: none; }
+    .location-content { padding: 20px; }
+    .location-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 12px 0 18px; color: var(--color-muted); font-size: .92rem; }
+    .instagram-link { color: var(--color-primary); font-weight: 800; }
+
+    .footer { padding: 48px 0 96px; background: var(--color-dark); color: rgba(255,255,255,.72); }
+    .footer-grid { display: grid; gap: 24px; }
+    .footer a { display: inline-block; margin-top: 8px; }
+    .footer-bottom { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); font-size: .88rem; color: rgba(255,255,255,.52); }
+
+    .footer h4, .footer h3 { color: var(--color-white); }
+    .footer h4 { font-size: 1.6rem; }
+  
+    .footer-contact-links a { display: flex; align-items: center; gap: 6px; margin-top: 0; }
+  
+    .whatsapp-widget { position: fixed; right: 16px; bottom: 16px; z-index: 60; }
+    .floating-whatsapp {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--color-white);
+      background: #25d366;
+      box-shadow: 0 16px 30px rgba(37,211,102,.35);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .whatsapp-options {
+      position: absolute;
+      right: 0;
+      bottom: 76px;
+      display: grid;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .whatsapp-option {
+      min-width: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      color: var(--color-dark);
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transform: translateY(14px) scale(.94);
+      opacity: 0;
+      transition: transform .24s ease, opacity .24s ease;
+    }
+    .whatsapp-option span { font-size: .9rem; font-weight: 800; }
+    .whatsapp-option strong { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: #25d366; color: #fff; }
+    .whatsapp-widget.is-open .whatsapp-options { pointer-events: auto; }
+    .whatsapp-widget.is-open .whatsapp-option { transform: translateY(0) scale(1); opacity: 1; }
+    .whatsapp-widget.is-open .whatsapp-option:nth-child(1) { transition-delay: .02s; }
+    .whatsapp-widget.is-open .whatsapp-option:nth-child(2) { transition-delay: .06s; }
+    .whatsapp-widget.is-open .whatsapp-option:nth-child(3) { transition-delay: .10s; }
+
+    @media (min-width: 720px) {
+      .hero-actions { display: flex; align-items: center; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .proof-grid, .locations-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+    }
+
+    @media (min-width: 940px) {
+      .nav-links { display: flex; }
+      .hero { padding: 72px 0 92px; }
+      .hero-grid { grid-template-columns: 1.05fr .95fr; }
+      .about-grid, .booking-grid { grid-template-columns: .95fr 1.05fr; }
+      .section { padding: 96px 0; }
+    }
+  </style></head><body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Bendita Maitê - Início">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Bendita Maitê</span>
+      </a><nav class="nav-links" aria-label="Navegação principal">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#unidades">Unidades</a>
+  </nav>
+
+  <a class="btn btn-primary" href="#agendamento">Agendar</a>
+</div>
+
+  </header>  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Salão de beleza em Natal/RN</span>
+          <h1>Beleza que valoriza sua <span class="gold-text">essência</span>.</h1>
+          <p class="lead">No Bendita Maitê, cada detalhe é pensado para realçar sua autoestima com praticidade, cuidado e um atendimento completo em cabelo, unhas, cílios, sobrancelhas e bem-estar.</p><div class="hero-actions">
+        <a class="btn btn-primary" href="#agendamento">Agendar pelo WhatsApp</a>
+        <a class="btn btn-secondary" href="#unidades">Ver unidades</a>
+      </div>
+
+      <div class="hero-stats" aria-label="Resumo de avaliações">
+        <div class="stat-card"><strong>4,6★</strong><span>Lagoa Nova</span></div>
+        <div class="stat-card"><strong>5,0★</strong><span>Zona Norte</span></div>
+        <div class="stat-card"><strong>251+</strong><span>Avaliações</span></div>
+      </div>
+    </div>
+
+    <div class="hero-media" role="img" aria-label="Imagem ilustrativa do salão Bendita Maitê">
+      <div class="hero-badge">
+        <strong>Experiência completa de beleza</strong>
+        <p>Cuidado profissional, ambiente acolhedor e serviços para sua rotina de autocuidado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pass-banner" aria-label="Bendita Maitê Pass">
+  <div class="container">
+    <div class="pass-card">
+      <span class="eyebrow">Lançamento em 02/05/2026</span>
+      <strong>Bendita Maitê Pass</strong>
+      <p>Seu acesso exclusivo à beleza e bem-estar. Uma novidade especial para transformar sua rotina de cuidados.</p>
+      <div class="pass-image" role="img" aria-label="Imagem do Bendita Maitê Pass"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Serviços</span>
+      <h2>Tudo para cuidar de você em um só lugar.</h2>
+      <p class="lead">Escolha o serviço desejado e fale com a equipe para conferir disponibilidade, horários e indicações para o seu objetivo.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card"><div class="service-icon">✦</div><h3>Sobrancelhas</h3><p>Design e finalização para valorizar o olhar.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Make</h3><p>Produção para ocasiões especiais e momentos importantes.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Cabelo</h3><p>Escova, corte, botox, selagem, progressiva e terapia capilar.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Cílios</h3><p>Realce do olhar com cuidado e acabamento profissional.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Unhas</h3><p>Unhas em gel, fibra e cuidados para mãos e pés.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Coloração</h3><p>Mechas, blonde e transformações com acabamento sofisticado.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Micropigmentação</h3><p>Procedimentos para praticidade, definição e beleza duradoura.</p></article>
+      <article class="service-card"><div class="service-icon">✦</div><h3>Bem-estar</h3><p>Serviços pensados para autoestima, conforto e autocuidado.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="container about-grid">
+    <div class="about-image" role="img" aria-label="Equipe ou espaço do salão Bendita Maitê"></div>
+    <div>
+      <span class="eyebrow">Sobre o salão</span>
+      <h2>Atendimento humano, cuidado nos detalhes e resultado que acompanha sua rotina.</h2>
+      <p class="lead">O Bendita Maitê nasceu para oferecer uma experiência de beleza completa, unindo técnica, acolhimento e praticidade para mulheres que desejam se sentir bem todos os dias.</p>
+
+      <div class="feature-list">
+        <div class="feature-item"><span>01</span><p><strong>Atendimento completo:</strong> serviços de cabelo, unhas, cílios, sobrancelhas e estética em um único lugar.</p></div>
+        <div class="feature-item"><span>02</span><p><strong>Experiência prática:</strong> agendamento facilitado pelo WhatsApp e unidades em diferentes regiões de Natal.</p></div>
+        <div class="feature-item"><span>03</span><p><strong>Ambiente cuidado:</strong> espaços preparados para oferecer conforto, confiança e uma rotina de autocuidado mais leve.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section social-proof" id="avaliacoes">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Prova social</span>
+      <h2>Quem conhece, avalia e recomenda.</h2>
+      <p class="lead">Com unidades bem avaliadas no Google, o Bendita Maitê reúne confiança, recorrência e cuidado real com cada cliente.</p>
+    </div>
+
+    <div class="proof-grid">
+      <article class="proof-card">
+        <div class="proof-image" role="img" aria-label="Resultado de beleza ilustrativo"></div>
+        <div class="proof-content">
+          <div class="stars">★★★★★</div>
+          <h3>Lagoa Nova</h3>
+          <p>4,6 de avaliação média com 151 avaliações.</p>
+        </div>
+      </article>
+      <article class="proof-card">
+        <div class="proof-image" role="img" aria-label="Resultado de cabelo ilustrativo"></div>
+        <div class="proof-content">
+          <div class="stars">★★★★★</div>
+          <h3>Zona Norte</h3>
+          <p>5,0 de avaliação média com 97 avaliações.</p>
+        </div>
+      </article>
+      <article class="proof-card">
+        <div class="proof-image" role="img" aria-label="Espaço do salão ilustrativo"></div>
+        <div class="proof-content">
+          <div class="stars">★★★★★</div>
+          <h3>Moema Tinoco</h3>
+          <p>5,0 de avaliação média com 3 avaliações.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="agendamento">
+  <div class="container booking-grid">
+    <div>
+      <span class="eyebrow">Agendamento</span>
+      <h2>Escolha seu horário pelo WhatsApp.</h2>
+      <p class="lead">Envie uma mensagem com o serviço desejado e a unidade de preferência. A equipe retorna com os horários disponíveis.</p>
+    </div>
+    <div class="booking-card">
+      <h2>Funcionamento</h2>
+      <p>Os horários podem variar conforme a unidade. Confirme a disponibilidade antes de se deslocar.</p>
+      <ul class="hours-list">
+        <li><span>Lagoa Nova</span><strong>Fecha 18:00</strong><a class="hours-whatsapp" href="https://wa.me/5584987309307?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20unidade%20Lagoa%20Nova." target="_blank" rel="noopener" aria-label="Agendar na unidade Lagoa Nova"><span class="icon-whatsapp" aria-hidden="true"></span></a></li>
+        <li><span>Partage ZN</span><strong>Fecha 22:00</strong><a class="hours-whatsapp" href="https://wa.me/5584988082444?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20unidade%20Partage%20ZN." target="_blank" rel="noopener" aria-label="Agendar na unidade Partage ZN"><span class="icon-whatsapp" aria-hidden="true"></span></a></li>
+        <li><span>Super Fácil ZN</span><strong>Fecha 21:00</strong><a class="hours-whatsapp" href="https://wa.me/5584981591015?text=Ol%C3%A1%2C%20quero%20agendar%20um%20hor%C3%A1rio%20na%20unidade%20Super%20F%C3%A1cil%20ZN." target="_blank" rel="noopener" aria-label="Agendar na unidade Super Fácil ZN"><span class="icon-whatsapp" aria-hidden="true"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="unidades">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Localização</span>
+      <h2>Três unidades para atender você em Natal.</h2>
+      <p class="lead">Veja a unidade mais próxima e abra o endereço diretamente no Google Maps.</p>
+    </div>
+
+    <div class="locations-grid">
+      <article class="location-card">
+        <div class="map-placeholder" role="img" aria-label="Mapa ilustrativo da unidade Lagoa Nova"></div>
+        <div class="location-content">
+          <h3>Bendita Maitê Lagoa Nova</h3>
+          <p>R. Nascimento Fernandes, 88 - Lagoa Nova, Natal - RN, 59056-280</p>
+          <div class="location-meta"><span class="stars">★ 4,6</span><span>151 avaliações</span></div>
+          <a class="instagram-link" href="https://instagram.com/benditamaitelagoanova" target="_blank" rel="noopener">@benditamaitelagoanova</a><br />
+          <a class="btn btn-secondary" style="margin-top: 16px;" href="https://maps.app.goo.gl/kpanUT5Wb67pWGdZ6" target="_blank" rel="noopener">Ver endereço e horários</a>
+        </div>
+      </article>
+
+      <article class="location-card">
+        <div class="map-placeholder" role="img" aria-label="Mapa ilustrativo da unidade Partage ZN"></div>
+        <div class="location-content">
+          <h3>Bendita Maitê Partage ZN</h3>
+          <p>Av. Dr. João Medeiros Filho, 2395 - Potengi, Natal - RN, 59110-200</p>
+          <div class="location-meta"><span class="stars">★ 5,0</span><span>97 avaliações</span></div>
+          <a class="instagram-link" href="https://instagram.com/benditamaitezonanorte" target="_blank" rel="noopener">@benditamaitezonanorte</a><br />
+          <a class="btn btn-secondary" style="margin-top: 16px;" href="https://maps.app.goo.gl/1fADCdpjQpkh6Eup6" target="_blank" rel="noopener">Ver endereço e horários</a>
+        </div>
+      </article>
+
+      <article class="location-card">
+        <div class="map-placeholder" role="img" aria-label="Mapa ilustrativo da unidade Super Fácil ZN"></div>
+        <div class="location-content">
+          <h3>Bendita Maitê Super Fácil ZN</h3>
+          <p>Av. Moema Tinoco da Cunha Lima - Pajuçara, Natal - RN, 59122-335</p>
+          <div class="location-meta"><span class="stars">★ 5,0</span><span>3 avaliações</span></div>
+          <a class="instagram-link" href="https://instagram.com/benditamaitesuperfacil" target="_blank" rel="noopener">@benditamaitesuperfacil</a><br />
+          <a class="btn btn-secondary" style="margin-top: 16px;" href="https://maps.app.goo.gl/C6ATqN7AHZ51xFHP7" target="_blank" rel="noopener">Ver endereço e horários</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Bendita Maitê - Salão de Beleza</h4>
+          <p>Beleza, autoestima e bem-estar com atendimento profissional em Natal/RN.</p>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <strong>Partage ZN</strong>
+              <div class="footer-contact-links">
+                <a href="https://wa.me/5584988082444" target="_blank" rel="noopener"><span class="icon-whatsapp" aria-hidden="true"></span>(84) 98808-2444</a>
+                <span class="footer-separator">|</span>
+                <a href="https://instagram.com/benditamaitezonanorte" target="_blank" rel="noopener"><span class="icon-instagram" aria-hidden="true"></span>@benditamaitezonanorte</a>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <strong>Super Fácil ZN</strong>
+              <div class="footer-contact-links">
+                <a href="https://wa.me/5584981591015" target="_blank" rel="noopener"><span class="icon-whatsapp" aria-hidden="true"></span>(84) 98159-1015</a>
+                <span class="footer-separator">|</span>
+                <a href="https://instagram.com/benditamaitesuperfacil" target="_blank" rel="noopener"><span class="icon-instagram" aria-hidden="true"></span>@benditamaitesuperfacil</a>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <strong>Lagoa Nova</strong>
+              <div class="footer-contact-links">
+                <a href="https://wa.me/5584987309307" target="_blank" rel="noopener"><span class="icon-whatsapp" aria-hidden="true"></span>(84) 98730-9307</a>
+                <span class="footer-separator">|</span>
+                <a href="https://instagram.com/benditamaitelagoanova" target="_blank" rel="noopener"><span class="icon-instagram" aria-hidden="true"></span>@benditamaitelagoanova</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3>Links úteis</h3>
+          <a href="#servicos">Serviços</a><br />
+          <a href="#agendamento">Agendamento</a><br />
+          <a href="#unidades">Unidades</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © <span id="currentYear"></span> Bendita Maitê. Todos os direitos reservados. | Política de privacidade
+      </div>
+    </div>
+  </footer>  <div class="whatsapp-widget" id="whatsappWidget">
+    <div class="whatsapp-options" aria-label="Escolha uma unidade para chamar no WhatsApp">
+      <a class="whatsapp-option" href="https://wa.me/5584988082444?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20na%20unidade%20Partage%20ZN." target="_blank" rel="noopener"><span>Partage ZN (97)</span><strong><span class="icon-whatsapp" aria-hidden="true"></span></strong></a>
+      <a class="whatsapp-option" href="https://wa.me/5584981591015?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20na%20unidade%20Super%20F%C3%A1cil%20ZN." target="_blank" rel="noopener"><span>Super Fácil ZN (5)</span><strong><span class="icon-whatsapp" aria-hidden="true"></span></strong></a>
+      <a class="whatsapp-option" href="https://wa.me/5584987309307?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20na%20unidade%20Lagoa%20Nova." target="_blank" rel="noopener"><span>Lagoa Nova (151)</span><strong><span class="icon-whatsapp" aria-hidden="true"></span></strong></a>
+    </div>
+    <button class="floating-whatsapp" type="button" aria-label="Abrir opções de WhatsApp" aria-expanded="false"><span class="icon-whatsapp-floating" aria-hidden="true"></span></button>
+  </div>  <script>
+    const CONFIG = {
+      whatsapps: {
+        partageZn: '5584988082444',
+        superFacilZn: '5584981591015',
+        lagoaNova: '5584987309307'
+      },
+      googleMapsUrls: {
+        lagoaNova: 'https://maps.app.goo.gl/kpanUT5Wb67pWGdZ6',
+        partageZn: 'https://maps.app.goo.gl/1fADCdpjQpkh6Eup6',
+        superFacilZn: 'https://maps.app.goo.gl/C6ATqN7AHZ51xFHP7'
+      },
+      images: {
+        logo: 'https://i.imgur.com/ZY97e00.png',
+        whatsappIcon: 'https://i.imgur.com/RFoFvMT.png',
+        whatsappFloatingIcon: 'https://i.imgur.com/qv8JxSI.png',
+        instagramIcon: 'https://i.imgur.com/ojnvgi4.png',
+        hero: 'https://i.imgur.com/MwsughF.png',
+        pass: 'https://i.imgur.com/rQrx4h0.png',
+        about: 'https://i.imgur.com/Tr2lLlq.png',
+        beforeAfter1: 'https://i.imgur.com/7mYa9JE.png',
+        beforeAfter2: 'https://i.imgur.com/wgkaLno.png',
+        beforeAfter3: 'https://i.imgur.com/aIzWaa2.png',
+        mapLagoaNova: 'https://i.imgur.com/8kpzv0M.png',
+        mapPartage: 'https://i.imgur.com/hba7lwd.png',
+        mapSuperFacil: 'https://i.imgur.com/sp8JuW0.png'
+      }
+    };
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const whatsappWidget = document.getElementById('whatsappWidget');
+    const whatsappButton = whatsappWidget.querySelector('.floating-whatsapp');
+
+    whatsappButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const isOpen = whatsappWidget.classList.toggle('is-open');
+      whatsappButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!whatsappWidget.contains(event.target)) {
+        whatsappWidget.classList.remove('is-open');
+        whatsappButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        whatsappWidget.classList.remove('is-open');
+        whatsappButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script></body></html>
